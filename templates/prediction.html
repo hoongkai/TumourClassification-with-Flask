@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Tumour Prediction</title>
+	<link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
+	<link rel='stylesheet' href='../static/style.css' type='text/css' media='screen' />
+    <link rel="shortcut icon" href="../static/faviconBrain.ico" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+</head>
+
+<body id="fullsingle" class="page-template-page-fullsingle-me">
+
+<div class="fs-me">
+
+	<!-- Content Container -->
+	<div class="content">
+		
+		<div class="logo">
+			
+			<form id="upload-form" action="/prediction" method="post" enctype="multipart/form-data">
+            <p style=font-size:70px;color:#dbdbdb> Select an MRI Scan.</p>
+            <label class="upload">
+                <input type="file" name="my_image" style="size:60"> Upload here.           
+            </label>
+            <br><br>
+            <button type="submit" style="width:13%;height:10%;"class="button">Submit.</button>
+			</form>
+		</div>
+        
+		{% if prediction %}
+        <!--<img src="{{img_name}}" height="200px" width="200px">-->
+        <h2> Classification   : <i> {{prediction}} </i></h2><br>
+      
+        {% endif %}
+
+        
+        <form method="POST" action="/"><label>
+			<input class="appSubmit" type="submit" name="image"><img src="../static/brainIcon.svg" alt="Tumour Prediction" width="50" height="50"/>
+		</label> 
+		</form>
+
+        
+		<div class="credit" style="margin-top:10px">
+
+			<p class="copyright">2022, by Chan Hoong Kai.</p>
+
+		</div>
+
+</body>
+</html>
